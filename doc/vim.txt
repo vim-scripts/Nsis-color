@@ -1,0 +1,40 @@
+Installation
+
+Vim 6.0 installation
+
+  1. Place nsis.vim to the $VIMRUNTIME\SYNTAX\
+
+  2. Add the following two lines to your $VIMRUNTIME\filetype.vim
+
+  " Nullsoft install system script
+  au BufNewFile,BufRead *.ns[ihIH]                setf nsis
+
+  3. Start vim and enjoy.
+
+Vim 5.8 installation
+
+  1. Place nsis.vim to the $VIMRUNTIME\SYNTAX\
+
+  2. Add the following two lines to your $VIMRUNTIME\filetype.vim
+
+  " Nullsoft install system script
+  au BufNewFile,BufRead *.ns[ihIH]                set ft=nsis
+
+  3. Open $VIMRUNTIME\SYNTAX\synload.vim for edit, search for
+  'delcommand SynAu' and insert the following line before
+
+  SynAu nsis
+
+  4. Start vim and enjoy.
+
+
+Functions List
+
+  You want vim to display functions and sections list? Its easy. Add the
+  following two lines to you $VIM/.vimrc ($VIM/_vimrc for Windows) file
+
+  set grepformat=%l:%m
+  command Fs grep -E ^[[:space:]]*\(Section\\|Function\)[[:space:]] %
+
+  Doesn't work? Check if you have got grep, if your 'grep -n' output format
+  is "%l:%m" and if your grep understand this regexp. Correct if nessesary.
